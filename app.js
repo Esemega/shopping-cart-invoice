@@ -64,9 +64,29 @@ const products = [
 ];
 
 // ******** TASKS LIST
-//show list in html -> descrition + price
+//add attributes to each element
 //Add input to each product with an event change listener
 
+const ol = document.createElement("ol");
+
+for (const product of products) {
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    const input = document.createElement("input");
+
+    const spanTextContent = product.description + " - " + product.price + "€/ud."
+    
+    span.textContent = spanTextContent;
+
+    li.appendChild(span);
+    li.appendChild(input);
+    ol.appendChild(li);
+}
+
+const shoppingList = document.getElementById("shopping-list");
+shoppingList.appendChild(ol);
+
+// ************* Calculating subtotal, iva and total when clicking button
 const getSubtotal = product => product.price*product.units;
 const getIva = product => product.price*(product.tax/100);
 const getTotal = product => getSubtotal(product) + getIva(product);
