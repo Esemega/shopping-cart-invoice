@@ -64,9 +64,30 @@ const products = [
 ];
 
 // ******** TASKS LIST
-//create a function to calculate the Subtotal
-//create a function to calculate the IVA
-//create a function to calculate the total
-//create a event listener for the button
 //show list in html -> descrition + price
 //Add input to each product with an event change listener
+
+const getSubtotal = product => product.price*product.units;
+const getIva = product => product.price*(product.tax/100);
+const getTotal = product => getSubtotal(product) + getIva(product);
+
+const buttonHandler = () => {
+    const subtotal = document.getElementById("subtotal");
+    const iva = document.getElementById("iva");
+    const total = document.getElementById("total");
+
+    let subtotalValue = 0;
+    let ivaValue = 0;
+    let totalValue = 0;
+    for (const product of products) {
+        subtotalValue += getSubtotal(product);
+        ivaValue += getIva(product);
+        totalValue += getTotal(product);
+    }
+
+    subtotal.innerText = subtotalValue.toFixed(2) + " €";
+    iva.innerText = ivaValue.toFixed(2) + " €";
+    total.innerText = totalValue.toFixed(2) + " €";
+}
+
+document.getElementById("calculate").addEventListener("click", buttonHandler);
