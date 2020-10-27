@@ -1,0 +1,38 @@
+
+body {
+    text-align: center;
+    width: 75%;
+
+}
+
+li {
+    text-align: right;
+}
+
+input {
+    margin: 1%;
+    padding: 1%;
+    width: 65px;
+    border-color: grey;
+    border-radius: 2px;
+    border-width: 1px;
+}
+
+footer {
+    text-align: right;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 2%;
+}
+
+button:enabled{
+    color: white;
+    background: green;
+}
+
+footer span {
+    margin: 0 0 0 10%;
+}

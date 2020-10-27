@@ -113,7 +113,7 @@ const createHtmlSpan = (product) => {
   const span = document.createElement("span");
   span.setAttribute("class", "product-description-price");
 
-  const spanTextContent = product.description + " - " + product.price + "€/ud.";
+  const spanTextContent = product.description + " - " + product.price.toFixed(2) + "€/ud.";
   span.textContent = spanTextContent;
 
   return span;
@@ -168,10 +168,8 @@ const createHtmlInput = (product) => {
       }
 
       alert(alertMesage);
-      input.classList.add("invalid-value");
     } else {
       product.units = event.target.value;
-      input.classList.remove("invalid-value");
     }
 
     enableOrDisableButton();
